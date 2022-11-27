@@ -8,6 +8,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+
 
 
 def load_dataset(dataset_path):
@@ -37,6 +40,8 @@ def decision_tree_train_test(x_train, x_test, y_train, y_test):
                 DecisionTreeClassifier()
         )
         pipe.fit(x_train, y_train)
+        acc = accuracy_score(pipe.predict(x_test), y_test))
+        confusion_matrix(y_test, pipe.predict(x_test))
         
 
 def random_forest_train_test(x_train, x_test, y_train, y_test):
@@ -47,7 +52,7 @@ def random_forest_train_test(x_train, x_test, y_train, y_test):
                 RandomForestClassifer()
         )
         pipe.fit(x_train, y_train)
-        
+        accuracy_score(pipe.predict(x_test), y_test))
 
 def svm_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
@@ -57,6 +62,7 @@ def svm_train_test(x_train, x_test, y_train, y_test):
                 SVC()
         )
         pipe.fit(x_train, y_train)
+        accuracy_score(pipe.predict(x_test), y_test))
         
         
 
